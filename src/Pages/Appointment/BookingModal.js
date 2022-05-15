@@ -1,13 +1,48 @@
 import { format } from "date-fns";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
+import auth from "../../firebase.init";
 
 const BookingModal = ({ treatment, date, setTreatment }) => {
-  const { name, slots } = treatment;
+  const { _id, name, slots } = treatment;
+  const [user, loading, error] = useAuthState(auth);
+  const formattedDate = format(date, "PP");
+
   const handleBooking = (e) => {
     e.preventDefault();
     const slot = e.target.slot.value;
-    console.log(slot);
-    setTreatment(null);
+    const phone = e.target.phone.value;
+    // console.log(_id, name, slot);
+    const booking = {
+      treatmentId: _id,
+      treatment: name,
+      date: formattedDate,
+      slot,
+      patient: user.email,
+      patientName: user.displayName,
+      phone,
+    };
+    fetch("http://localhost:5000/booking", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(booking),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          toast.success(`Appointment is set, ${formattedDate} at ${slot}`);
+        } else {
+          toast.error(
+            `You already have an appointment! on ${data.booking?.date} at ${data.booking?.slot}`
+          );
+        }
+        console.log(data);
+        // to close data
+        setTreatment(null);
+      });
   };
   return (
     <div>
@@ -38,13 +73,15 @@ const BookingModal = ({ treatment, date, setTreatment }) => {
             </select>
             <input
               type="text"
-              placeholder="Your name"
+              value={user?.displayName}
+              disabled
               name="name"
               class="input input-bordered w-full max-w-xs"
             />
             <input
               type="email"
-              placeholder="Email address"
+              value={user?.email}
+              disabled
               name="email"
               class="input input-bordered w-full max-w-xs"
             />
@@ -53,6 +90,7 @@ const BookingModal = ({ treatment, date, setTreatment }) => {
               placeholder="Phone number"
               name="phone"
               class="input input-bordered w-full max-w-xs"
+              required
             />
             <input
               type="submit"
