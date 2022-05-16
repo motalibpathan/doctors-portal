@@ -1,3 +1,21 @@
+# Doctors portal
+
+Live site link [https://doctors-portal-6706d.web.app/](https://doctors-portal-6706d.web.app/)
+
+## Technology used
+
+- JavaScript
+- React js
+- Tailwind css
+- Daisy ui
+- Firebase
+- React firebase hook
+- React router dom v6
+- React toastify
+- date fns
+- React day picker
+- React query
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

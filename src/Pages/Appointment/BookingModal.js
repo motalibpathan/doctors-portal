@@ -23,7 +23,7 @@ const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
       patientName: user.displayName,
       phone,
     };
-    fetch("http://localhost:5000/booking", {
+    fetch("https://salty-river-38714.herokuapp.com/booking", {
       method: "POST",
       headers: {
         "content-type": "application/json",

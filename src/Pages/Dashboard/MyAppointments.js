@@ -10,12 +10,15 @@ const MyAppointments = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/booking?patient=${user.email}`, {
-        method: "GET",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      })
+      fetch(
+        `https://salty-river-38714.herokuapp.com/booking?patient=${user.email}`,
+        {
+          method: "GET",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      )
         .then((res) => {
           if (res.status === 401 || res.status === 403) {
             signOut(auth);
