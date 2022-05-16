@@ -5,11 +5,11 @@ import chair from "../../assets/images/chair.png";
 
 const AppointmentBanner = ({ date, setDate }) => {
   return (
-    <div class="hero min-h-[500px] ">
-      <div class="hero-content flex-col lg:flex-row-reverse">
+    <div className="hero min-h-[500px] ">
+      <div className="hero-content flex-col lg:flex-row-reverse">
         <img
           src={chair}
-          class="max-w-sm rounded-lg shadow-2xl"
+          className="max-w-sm rounded-lg shadow-2xl w-full"
           alt="dentist chair"
         />
         <div>

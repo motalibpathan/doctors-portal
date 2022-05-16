@@ -10,9 +10,15 @@ const Banner = () => {
       style={{ backgroundImage: `url('${bg}')` }}
     >
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <img src={chair} className="max-w-sm rounded-lg shadow-2xl" alt="" />
+        <img
+          src={chair}
+          className="max-w-sm rounded-lg shadow-2xl w-full"
+          alt=""
+        />
         <div>
-          <h1 className="text-5xl font-bold">Your new smile starts here</h1>
+          <h1 className="lg:text-5xl text-3xl font-bold">
+            Your new smile starts here
+          </h1>
           <p className="py-6">
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
