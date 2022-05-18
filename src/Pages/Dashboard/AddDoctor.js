@@ -14,7 +14,9 @@ const AddDoctor = () => {
   const [loading, setLoading] = useState(false);
 
   const { data: services, isLoading } = useQuery("services", () =>
-    fetch("http://localhost:5000/services").then((res) => res.json())
+    fetch("https://salty-river-38714.herokuapp.com/services").then((res) =>
+      res.json()
+    )
   );
 
   const imageStorageKey = "5e0535abd7d9d6b60c4e5a1b225e1823";
@@ -51,7 +53,7 @@ const AddDoctor = () => {
             img,
           };
           // sent to your database
-          fetch(`http://localhost:5000/doctor`, {
+          fetch(`https://salty-river-38714.herokuapp.com/doctor`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -80,7 +82,7 @@ const AddDoctor = () => {
 
   return (
     <div>
-      <h2 className="text-3xl"> Add a new Doctor</h2>
+      <h2 className="text-2xl my-3"> Add a new Doctor</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control w-full max-w-xs">
           <label className="label">
@@ -158,7 +160,7 @@ const AddDoctor = () => {
           </label>
           <input
             type="file"
-            className="input input-bordered w-full max-w-xs"
+            className="form-control block w-full px-3 py-3 rounded-md text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             {...register("image", {
               required: {
                 value: true,

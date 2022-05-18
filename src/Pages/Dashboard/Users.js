@@ -22,19 +22,19 @@ const Users = () => {
   }
   return (
     <div>
-      <h1 className="my-2">All user: {users?.length}</h1>
+      <h1 className="text-2xl my-2">All user: {users?.length}</h1>
       <table className="table w-full">
         <thead>
           <tr>
             <th></th>
             <th>Name</th>
-            <th>Date</th>
-            <th>Time</th>
+            <th>Role</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
           {users.map((user, i) => (
-            <UserRow key={user._id} user={user} refetch={refetch} />
+            <UserRow key={user._id} user={user} refetch={refetch} index={i} />
           ))}
         </tbody>
       </table>
