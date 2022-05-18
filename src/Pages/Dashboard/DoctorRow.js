@@ -7,8 +7,8 @@ const DoctorRow = ({ doctor, index, setSelectedDoctor }) => {
     <tr>
       <th>{index + 1}</th>
       <td>
-        <div class="avatar">
-          <div class="w-8 rounded">
+        <div className="avatar">
+          <div className="w-8 rounded">
             <img src={img} alt="" />
           </div>
         </div>
@@ -19,7 +19,7 @@ const DoctorRow = ({ doctor, index, setSelectedDoctor }) => {
         <label
           onClick={() => setSelectedDoctor(doctor)}
           htmlFor="delete-modal"
-          class="btn btn-xs btn-error text-white"
+          className="btn btn-xs btn-error text-white"
         >
           Delete
         </label>

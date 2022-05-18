@@ -31,9 +31,9 @@ const LoadingProgress = ({ children, loading }) => {
   if (progress < 101) {
     return (
       <div className="w-full h-[300px] flex justify-center items-center">
-        <div class="w-4/5 bg-gray-200 rounded-full dark:bg-gray-700">
+        <div className="w-4/5 bg-gray-200 rounded-full dark:bg-gray-700">
           <div
-            class="bg-purple-500 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-lg duration-1000"
+            className="bg-purple-500 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-lg duration-1000"
             style={{ width: `${progress}%` }}
           >
             {progress}%
